@@ -1,0 +1,1 @@
+Our task was to create a function that would accept an array of integers and return an object literal with three properties. Those properties are the highest value and lowest value present in the array, as well as the average of all values in the array.
