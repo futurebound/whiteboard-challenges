@@ -1,6 +1,8 @@
 'use strict';
 
-function twoHighest(arr) {
+const highestNumber = module.exports = {};
+
+highestNumber.twoHighest = function(arr) {
   if (arr.length === 0) { //to check edge case of empty array
     return null;
   }
