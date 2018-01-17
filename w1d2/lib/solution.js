@@ -4,7 +4,10 @@ const highestNumber = module.exports = {};
 
 highestNumber.twoHighest = function(arr) {
   if (arr.length === 0) { //to check edge case of empty array
-    return null;
+    return {
+      highest: null,
+      nextHighest: null
+    };
   }
   if (arr.length === 1 && typeof(arr[0]) === 'number') { //to check edge case of only one value in array
     return {
