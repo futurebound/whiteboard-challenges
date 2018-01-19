@@ -1,0 +1,3 @@
+To run this code, clone the repository and open in your favorite editor. Running 'npm install' in the terminal will install the required packages, and upon completion 'npm test' will run the tests included for the code. 
+
+Index.js is home to one function, 'intersect', will expects two arrays of comma separated strings, numbers, booleans, or objects and will determine whether there are any duplicates between the two arrays. The function will return an array with the duplicants (elements present in both arrays).
