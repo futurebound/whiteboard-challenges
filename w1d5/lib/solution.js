@@ -3,6 +3,9 @@
 const solution = module.exports = {};
 
 solution.middleNode = (list) => {
+  if(typeof(list) !== 'object') {
+    return 'invalid input';
+  }
   let listNodes = [];
   let obj = list;
   while (obj) {
@@ -11,4 +14,4 @@ solution.middleNode = (list) => {
   }
   let targetNode = Math.floor(listNodes.length / 2);
   return [listNodes[targetNode].value, listNodes[targetNode].next];
-}
+};
