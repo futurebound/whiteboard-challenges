@@ -1,0 +1,20 @@
+{
+  "name": "w1d5",
+  "version": "1.0.0",
+  "description": "Documentation in your README, write documentation for you data structures your documentation should includes code block useage examples provide instructions for: installing and using your data structure accessing each method running your tests",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "jest": "^22.1.4"
+  }
+}
