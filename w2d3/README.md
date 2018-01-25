@@ -1,1 +1,3 @@
 To run this code, clone the repository and open in your favorite editor. Running 'npm install' in the terminal will install the required packages, and upon completion 'npm test' will run the tests included for the code. 
+
+The function duplicateNodes takes two differet singly linked lists as arguments, and checks to see whether any of the values are present in boths lists. It will then return a new singly linked list with all duplicate values, nested/linked in the order they were discovered to be duplicates.
