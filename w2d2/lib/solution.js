@@ -12,7 +12,7 @@ LinkedList.prototype.push = function (val) {
     value: val,
     next: null,
     seen: false,
-  }
+  };
   if (!this.head) {
     this.head = node;
   }
