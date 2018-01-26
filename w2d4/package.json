@@ -1,0 +1,19 @@
+{
+  "name": "w2d4",
+  "version": "1.0.0",
+  "description": "To run this code, clone the repository and open in your favorite editor. Running 'npm install' in the terminal will install the required packages, and upon completion 'npm test' will run the tests included for the code.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "jest": "^22.1.4"
+  }
+}
