@@ -13,7 +13,7 @@ solution.arrayGenerator = function(val) {
   return arr;
 }
 
-solution.calculateArray = function(arr) {
+solution.calculateMissing = function(arr) {
   if (arr.length !== 99) return ('ERROR: Invalid array length');
 
   let arrSum = arr.reduce((a, b) => a + b);
