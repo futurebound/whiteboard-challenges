@@ -1,0 +1,21 @@
+{
+  "name": "w2d5",
+  "version": "1.0.0",
+  "description": "**Author**: Mitchell **Version**: 1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.16.0",
+    "jest": "^22.1.4"
+  },
+  "scripts": {
+    "test": "jest --verbose",
+    "lint": "eslint"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
