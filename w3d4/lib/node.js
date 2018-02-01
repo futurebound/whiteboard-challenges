@@ -3,7 +3,7 @@
 module.exports = class {
   constructor(val) {
     if (!val) return new Error('Value must be passed as argument');
-    this.val = val;
+    this.value = val;
     this.next = null;
   }
 };

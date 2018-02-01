@@ -1,6 +1,6 @@
 'use strict';
 
-const Nd = require('../lib/nd');
+const Node = require('../lib/node');
 
 class SLL {
   constructor() {
@@ -11,7 +11,7 @@ class SLL {
   //O(1)
   insertHead(val) {
     if(typeof val !== 'number') return 'ERROR: non-numerical input';
-    let node = new Nd(val);
+    let node = new Node(val);
     node.next = this.head;
     this.head = node;
     this.length += 1;
@@ -21,7 +21,7 @@ class SLL {
   //O(n)
   insertEnd(val) {
     if (typeof val !== 'number') return 'ERROR: non-numerical input';
-    let node = new Nd(val);
+    let node = new Node(val);
     if(!this.head) {
       this.head = node;
       this.length += 1;
