@@ -1,72 +1,82 @@
 'use strict';
 
-const SLL = require('../lib/sll');
+const K_ary = require('../lib/kary-tree');
 const solution = require('../lib/solution');
 require('jest');
 
 describe('#solution', () => {
-  describe('#dedupe(head)', function () {
-    beforeEach(() => {
-      this.testSLL = new SLL().insertEnd(1).insertEnd(2).insertEnd(2).insertEnd(3).insertEnd(3).insertEnd(4).insertEnd(5).insertEnd(6);
-      this.testSLLTwo = new SLL().insertEnd(1).insertEnd(2).insertEnd(3).insertEnd(4).insertEnd(5).insertEnd(6).insertEnd(2).insertEnd(3);
-    });
-    
-    it('should create an SLL with length of 8, to use as argument in dedupe', () => {
-      expect(this.testSLL.length).toEqual(8);
-      expect(this.testSLLTwo.length).toEqual(8);
-    });
-    
-    describe('Valid input/output', () => {
-      it('should return an instance of SLL', () => {
-        expect(solution.dedupe(this.testSLL)).toBeInstanceOf(SLL);
-        expect(solution.dedupe(this.testSLLTwo)).toBeInstanceOf(SLL);
-      });
-  
-      it('should have a length of 6 with argument possessing two consecutive duplicates', () => {
-        expect(solution.dedupe(this.testSLL).length).toEqual(6);
-      });
-      it('should have node values of 1, 2, 3, 4, 5, 6', () => {
-        let result = solution.dedupe(this.testSLL);
-        expect(result.head.value).toEqual(1);
-        expect(result.head.next.value).toEqual(2);
-        expect(result.head.next.next.value).toEqual(3);
-        expect(result.head.next.next.next.value).toEqual(4);
-        expect(result.head.next.next.next.next.value).toEqual(5);
-        expect(result.head.next.next.next.next.next.value).toEqual(6);
-      });
-  
-      it('should have a length of 8 with argument possessing two duplicates but neither consecutive', () => {
-        expect(solution.dedupe(this.testSLLTwo).length).toEqual(8);
-      });
-      it('should have node values of 1, 2, 3, 4, 5, 6, 2, 3', () => {
-        let result = solution.dedupe(this.testSLLTwo);
-        expect(result.head.value).toEqual(1);
-        expect(result.head.next.value).toEqual(2);
-        expect(result.head.next.next.value).toEqual(3);
-        expect(result.head.next.next.next.value).toEqual(4);
-        expect(result.head.next.next.next.next.value).toEqual(5);
-        expect(result.head.next.next.next.next.next.value).toEqual(6);
-        expect(result.head.next.next.next.next.next.next.value).toEqual(2);
-        expect(result.head.next.next.next.next.next.next.next.value).toEqual(3);
-      });
+  describe('#childlessNodes', function () {
+    beforeAll(() => {
+      //remember that instead of if(next) its if(children.length)
+      this.testSingleNode = new K_ary().insert(1, 1);
+      this.testTree = new K_ary().insert(1, 1).insert(2, 1).insert(3, 2);
+      this.testTreeTwo = new K_ary().insert(1, 1).insert(2, 1).insert(3, 2).insert(4, 2);
+      this.testTreeThree = new K_ary().insert(1, 1).insert(2, 1).insert(3, 2).insert(4, 2).insert(5, 1);
 
+      this.testInvalid = new K_ary();
     });
 
-    describe('Invalid input', () => {
-      let testInvalid = 'whoops';
-      let testInvalidTwo = new SLL().insertEnd(1);
-      it('should return error without having a head, value, or next', () => {
-        expect(solution.dedupe(testInvalid)).toBeInstanceOf(Error);
-      });
-      it('should return message of error without having a head, value, or next', () => {
-        expect(solution.dedupe(testInvalid).message).toEqual('ERROR: Invalid Input');
-      });
+    it('should just return single node if no children', () => {
+      expect(solution.childlessNodes(this.testSingleNode).length).toEqual(1);
+    });
 
-      it('should return error with only one node', () => {
-        expect(solution.dedupe(testInvalidTwo)).toBeInstanceOf(Error);
+    describe('Valid input/output with single childess node', () => {
+      it('should return an array', () => {
+        expect(solution.childlessNodes(this.testTree)).toBeInstanceOf(Array);
       });
-      it('should return message of error without having a next', () => {
-        expect(solution.dedupe(testInvalidTwo).message).toEqual('ERROR: Only one node in list, cannot check for duplicates');
+      it('should return an array with one node', () => {
+        expect(solution.childlessNodes(this.testTree).length).toEqual(1);
+      });
+      it('should return an array with one node, with a value of 3', () => {
+        expect(solution.childlessNodes(this.testTree)[0].val).toEqual(3);
+      });
+      it('should return an array with one node, with a value of 3, and no children', () => {
+        expect(solution.childlessNodes(this.testTree)[0].children.length).toEqual(0);
+      });     
+    });
+
+    describe('Valid input/output with two childless nodes', () => {
+      it('should return an array', () => {
+        expect(solution.childlessNodes(this.testTreeTwo)).toBeInstanceOf(Array);
+      });
+      it('should return an array with two nodes', () => {
+        expect(solution.childlessNodes(this.testTreeTwo).length).toEqual(2);
+      });
+      it('should return an array with two nodes, with values of 3 and 4', () => {
+        expect(solution.childlessNodes(this.testTreeTwo)[0].val).toEqual(3);
+        expect(solution.childlessNodes(this.testTreeTwo)[1].val).toEqual(4);
+      });
+      it('should return an array with two nodes, with values of 3 and 4, neither with children', () => {
+        expect(solution.childlessNodes(this.testTreeTwo)[0].children.length).toEqual(0);
+        expect(solution.childlessNodes(this.testTreeTwo)[1].children.length).toEqual(0);
+      });
+    });
+
+    describe('Valid input/output with three childless nodes, on multiple branches from root nodes', () => {
+      it('should return an array', () => {
+        expect(solution.childlessNodes(this.testTreeThree)).toBeInstanceOf(Array);
+      });
+      it('should return an array with three nodes', () => {
+        expect(solution.childlessNodes(this.testTreeThree).length).toEqual(3);
+      });
+      it('should return an array with three nodes, with values of 3, 4, and 5', () => {
+        expect(solution.childlessNodes(this.testTreeThree)[0].val).toEqual(5);
+        expect(solution.childlessNodes(this.testTreeThree)[1].val).toEqual(3);
+        expect(solution.childlessNodes(this.testTreeThree)[2].val).toEqual(4);
+      });
+      it('should return an array with three nodes, with values of 3, 4, and 5 none with children', () => {
+        expect(solution.childlessNodes(this.testTreeThree)[0].children.length).toEqual(0);
+        expect(solution.childlessNodes(this.testTreeThree)[1].children.length).toEqual(0);
+        expect(solution.childlessNodes(this.testTreeThree)[2].children.length).toEqual(0);
+      });
+    });
+
+    describe('Invalid input/output', () => {
+      it('should return error if nothing in tree', () => {
+        expect(solution.childlessNodes(this.testInvalid)).toBeInstanceOf(Error);
+      });
+      it('should return error message if nothing in tree', () => {
+        expect(solution.childlessNodes(this.testInvalid).message).toEqual('Invalid input, nothing in tree');
       });
     });
   });

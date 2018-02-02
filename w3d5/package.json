@@ -6,17 +6,15 @@
   "directories": {
     "lib": "lib"
   },
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint ."
+  },
   "jest": {
-    "setupFiles": [
-      "./__test__/lib/jest-setup.js"
-    ],
     "verbose": true,
     "testEnvironment": "node",
     "collectCoverage": true,
     "coverageDirectory": "./coverage",
-    "coveragePathIgnorePatterns": [
-      "/__test__/"
-    ],
     "coverageThreshold": {
       "global": {
         "branches": 80,
