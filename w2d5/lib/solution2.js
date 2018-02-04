@@ -2,6 +2,7 @@
 
 const solution = module.exports = {};
 
+//O(n) ?? or O(1) should still be tied to the length of the array, although perhaps not in the same way as a loop so perhaps more O(1) than O(n)..
 solution.binarySearch = function(n, arr) {
   if(!n || !arr) return new Error('please pass both a number and an array');
   if(typeof n !== 'number') return new Error('n must be a number');
