@@ -1,21 +1,20 @@
 {
-  "name": "w2d5",
+  "name": "w3d2",
   "version": "1.0.0",
   "description": "**Author**: Mitchell **Version**: 1.0.0",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^4.16.0",
-    "jest": "^22.1.4"
-  },
   "scripts": {
-    "test": "jest --verbose",
-    "lint": "eslint"
+    "lint": "eslint .",
+    "test": "jest --verbose"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.17.0",
+    "jest": "^22.1.4"
+  }
 }
