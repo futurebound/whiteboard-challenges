@@ -23,7 +23,11 @@ describe('#solution2', function() {
         expect(solution.binarySearch(3, test).value).toEqual(3);
         expect(solution.binarySearch(3, test).index).toEqual(2);
       });
-
+      it('should return the target value and correct target index, regardless of where the number array stars/ends with', () => {
+        let test = [5, 6, 7, 8, 9, 10, 11, 12, 13];
+        expect(solution.binarySearch(11, test).value).toEqual(11);
+        expect(solution.binarySearch(11, test).index).toEqual(6);
+      });
       it('should return the target value and correct target index if only 1 number in array and that is target', () => {
         let test = [1];
         expect(solution.binarySearch(1, test).value).toEqual(1);
