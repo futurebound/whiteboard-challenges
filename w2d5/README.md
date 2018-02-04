@@ -13,3 +13,5 @@ First, fork and/or clone this repository using the `git clone <git repository li
 
 ## Description
 
+## Credits and Collaborations
+[Jest Docs](https://facebook.github.io/jest/) ~ https://facebook.github.io/jest/
