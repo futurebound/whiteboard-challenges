@@ -10,6 +10,7 @@ module.exports = class {
   }
 
   enqueue(val) {
+    if(!val) return new Error('no value to enqueue, please pass value');
     while(this.outStack.size) {
       this.inStack.push(this.outStack.pop());
     }
@@ -19,10 +20,10 @@ module.exports = class {
   }
 
   dequeue() {
+    if(!this.inStack.size) return new Error('nothing to dequeue');
     while(this.inStack.size) {
       this.outStack.push(this.inStack.pop());
     }
-    console.log(this.outStack);
     this.size--;
     return this.outStack.pop();
   }
