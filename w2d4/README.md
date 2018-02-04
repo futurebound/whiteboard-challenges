@@ -10,7 +10,7 @@ We were tasked to create a function that accepts a number and a singly linked li
 Clone this repository and open in your favorite editor. Running `npm install` and `npm test` will run all available tests.
 
 ## Description
-In the solution.js file located in the lib/ directory, there is a single function `nthFromLast()` expecting two arguments: 
+In the solution.js file located in the lib/ directory, there is a single function `nthFromLast(n, sll)` expecting two arguments: 
 1. Integer to target
 2. Singly linked list
 
