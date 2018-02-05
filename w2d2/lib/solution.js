@@ -1,42 +1,23 @@
 'use strict';
 
 const solution = module.exports = {};
+const SLL = require('./sll'); 
 
-function LinkedList() {
-  this.head = null;
-}
+solution.findRepeat = function(sll) {
+  if(sll instanceof SLL) {
+    if(!sll.head) return new Error('empty sll');
 
+    let pointer1 = sll.head;
+    let pointer2 = sll.head;
+    let counter = 0;
 
-LinkedList.prototype.push = function (val) {
-  var node = {
-    value: val,
-    next: null,
-    seen: false,
-  };
-  if (!this.head) {
-    this.head = node;
-  }
-  else {
-    current = this.head;
-    while (current.next) {
-      current = current.next;
+    while (sll.head.next && counter < 3) {
+      pointer1 = pointer1.next;
+      pointer2 = pointer2.next.next;
+      if(pointer1 === pointer2) return true;
+      if(pointer1 === sll.head) counter++;
+      if(pointer1 === undefined || pointer2 === undefined) return false;
     }
-    current.next = node;
-  }
-}
-
-
-let findRepeat = function (list) {
-
-  let pointer1 = list
-  let pointer2 = list
-
-  while (list.head.next) {
-    pointer1 = list.next
-    pointer2 = list.next.next
-    if (pointer1.next === pointer2.next) return true
-  }
-
-  return false
-
-}
+    return false;
+  } else return new Error('please pass a singly linked list');
+};
