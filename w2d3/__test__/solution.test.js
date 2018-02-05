@@ -5,19 +5,17 @@ const SLL = require('./sll');
 
 const solution = require('../lib/solution');
 
-describe('w2d3 whiteboarding', function() {
-  it('should', function(done) {
 
-    done();
+describe('', function () {
+  describe(`valid input/output`, () => {
+    it(‘’, () => {
+      expect().;
+    });
   });
 
-  it('should', function(done) {
-
-    done();
-  });
-
-  it('should', function(done) {
-
-    done();
+  describe(`invalid input/output`, () => {
+    it(‘’, () => {
+      expect().;
+    });
   });
 });
