@@ -9,18 +9,15 @@ describe('#solution.js', function() {
     beforeEach(() => {
       this.sll = new SLL().insertEnd(1).insertEnd(2).insertEnd(3);
     });
-
+    
+    it('should return false with non-circular SLL', () => {
+      expect(solution.findRepeat(this.sll)).toBe(false);
+    });
     it('should return true with circular list', () => {
       let test = new SLL().insertEnd(1).insertEnd(2).insertEnd(3);
       test.head.next.next.next = test.head;
       expect(solution.findRepeat(test)).toBe(true);
     });
-    // it('should return false with non-circular SLL', () => {
-    //   expect(solution.findRepeat(this.sll)).toBe(false);
-    // });
-    // it('', () => {
-    //   expect();
-    // });
   });
 
   describe('invalid input/output', () => {
