@@ -20,9 +20,9 @@ class SLL {
       this.head = node;
       return this;
     }
-    // for(var i = this.head; i.next; i = i.next);
-    // i.next = nd;
-    // return this;
+    for(var i = this.head; i.next; i = i.next);
+    i.next = node;
+    return this;
   }
 
   //O(n)
