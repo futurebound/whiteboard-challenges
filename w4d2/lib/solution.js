@@ -16,5 +16,5 @@ solution.treeSum = function(k_ary) {
     };
     tree.breadthFirst(callback);
     return total;
-  } else return new Error('please pass a k_ary tree')
+  } else return new Error('please pass a k_ary tree');
 };
