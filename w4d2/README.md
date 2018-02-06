@@ -11,7 +11,7 @@ To get this application up and running, fork and/or clone this repository using 
 
 ## Description
 **Solution**
-The solution module exports a single function, `childlessNodes(root)`, which functions as described above. If there are no nodes to check, it will return an error with a message describing that. If there is a single node in the tree, it will return that node in an array. It defines the callback function to be used by the `breadthFirst(callback)` method on the `K_ary` class. The callback identifies whether or not the current node has children nodes during traversal, and if not pushes them to an empty array to return as the output of childless nodes.
+The solution module exports a single function, `treeSum(k_ary)`, which functions as described above. If there are no nodes to check, it will return an error with a message describing that. It defines the callback function to be used by the `breadthFirst(callback)` method on the `K_ary` class. The callback verifies that the value of the current node is a number, and if it passes that verification its value is added to the total to be returned upon completion. If there are no numeric values in the tree, the function defaults to returning `null`. If the only numeric value in the tree is `0`, the function will return `0` not `null`.
 
 **Kary-Tree**
 This module was given as starter code. It exports a single class, `K_ary`, which is used in the solution and testing modules to construct trees and call the methods on them it needed. The methods used in these modules are `breadthFirst(callback)` and `insert(val, present)`. The latter was used purely to construct test trees.
