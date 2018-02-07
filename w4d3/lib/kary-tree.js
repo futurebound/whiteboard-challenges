@@ -51,7 +51,8 @@ const K_ary = module.exports = class {
   }
 
   // Removals
-  removeByVal(val) {
+  removeByVal() {
     // Remove the first node you find that matches val
+    this.body = K_ary;
   }
 };
