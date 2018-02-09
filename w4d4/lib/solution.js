@@ -1,5 +1,6 @@
 'use strict';
 
+const SLL = require('../lib/sll');
 const K_ary = require('../lib/kary-tree');
 
 module.exports = function(k_ary) {
@@ -8,11 +9,19 @@ module.exports = function(k_ary) {
     tree = k_ary;
     if (!tree.root) return new Error('Invalid input, nothing in tree');
 
-    let mostChildren = tree.root;
+    let nodeValues = [], sll = new SLL();
     let callback = function (current) {
-      if (current.val.children.length > mostChildren.children.length) mostChildren = current.val;
+      if (typeof current.val.val === 'number') nodeValues.push(current.val.val);
     };
     tree.breadthFirst(callback);
-    return mostChildren;
+    
+    console.log(nodeValues.sort());
+    for(let i in nodeValues) {
+      sll.insertEnd(nodeValues[i])
+    }
+
+    // console.log(nodeValues.map(i => sll.insertEnd(i)));
+    return sll;
+
   } else return new Error('please pass a k_ary tree');
 };
