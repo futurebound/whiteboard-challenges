@@ -15,9 +15,9 @@ module.exports = function(k_ary) {
     };
     tree.breadthFirst(callback);
     
-    console.log(nodeValues.sort());
+    console.log(nodeValues.sort((a, b) => a - b));
     for(let i in nodeValues) {
-      sll.insertEnd(nodeValues[i])
+      sll.insertEnd(nodeValues[i]);
     }
 
     // console.log(nodeValues.map(i => sll.insertEnd(i)));

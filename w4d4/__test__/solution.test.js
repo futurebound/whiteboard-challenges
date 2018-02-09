@@ -8,14 +8,15 @@ require('jest');
 describe('#solution', function () {
   beforeAll(() => {
     this.test = new K_ary().insert(1).insert(2, 1).insert(3, 2).insert(4, 2);
-    this.testTwo = new K_ary().insert(1).insert(2, 1).insert(3, 2).insert(4, 2).insert(5, 1);
-    this.testThree = new K_ary().insert(1).insert(2, 1).insert(3, 2).insert(4, 2).insert(5, 1).insert(6, 3).insert(7, 3).insert(8, 3);
+    this.testTwo = new K_ary().insert(1).insert('crayon', 1).insert('pencil', 'crayon').insert(4, 1).insert(5, 4);
+    this.testThree = new K_ary().insert(1).insert(11, 1).insert(2, 1).insert(4, 2).insert(5, 1).insert(3, 2).insert(7, 3).insert(8, 3);
 
     this.testInvalid = new K_ary();
   });
 
   describe(`valid input/output`, () => {
     it('should return a SLL instance', () => {
+      console.log(solution(this.test));
       expect(solution(this.test)).toBeInstanceOf(SLL);
     });
     it('should return a SLL with a head, and value/next properties on the head', () => {
@@ -23,18 +24,28 @@ describe('#solution', function () {
       expect(solution(this.test).head).toHaveProperty('value');
       expect(solution(this.test).head).toHaveProperty('next');
     });
-
     it('should return SLL with length of 4', () => {
       expect(solution(this.test).length).toEqual(4);
     });
-    // it('should return node with val of 1, 2 childen since it was encountered first', () => {
-    //   expect(solution(this.testTwo).val).toEqual(1);
-    //   expect(solution(this.testTwo).children.length).toEqual(2);
-    // });
-    // it('should return node with val of 3, 3 childen', () => {
-    //   expect(solution(this.testThree).val).toEqual(3);
-    //   expect(solution(this.testThree).children.length).toEqual(3);
-    // });
+
+    it('should ignore strings and ouput SLL of only numbers', () => {
+      expect(solution(this.testTwo).head.value).toEqual(1);
+      expect(solution(this.testTwo).head.next.value).toEqual(4);
+      expect(solution(this.testTwo).head.next.next.value).toEqual(5);
+      expect(solution(this.testTwo).head.next.next.next).toBeNull();
+      expect(solution(this.testTwo).length).toEqual(3);
+    });
+    it('should return with sorted numerican values, including doubles', () => {
+      expect(solution(this.testThree).length).toEqual(8);
+      expect(solution(this.testThree).head.value).toEqual(1);
+      expect(solution(this.testThree).head.next.value).toEqual(2);
+      expect(solution(this.testThree).head.next.next.value).toEqual(3);
+      expect(solution(this.testThree).head.next.next.next.value).toEqual(4);
+      expect(solution(this.testThree).head.next.next.next.next.value).toEqual(5);
+      expect(solution(this.testThree).head.next.next.next.next.next.value).toEqual(7);
+      expect(solution(this.testThree).head.next.next.next.next.next.next.value).toEqual(8);
+      expect(solution(this.testThree).head.next.next.next.next.next.next.next.value).toEqual(11);
+    });
   });
 
   describe(`invalid input/output`, () => {
