@@ -1,0 +1,19 @@
+{
+  "name": "w6d1-whiteboard",
+  "version": "1.0.0",
+  "description": "",
+  "main": "solution.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "start": "node solution.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^4.16.0"
+  }
+}
