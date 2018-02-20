@@ -1,8 +1,8 @@
 'use strict';
 
-const solution = module.exports = {};
+const utils = module.exports = {};
 
-solution.map = function(array, callback) {
+utils.map = function(array, callback) {
   let result = [];
   for(let i = 0; i < array.length; i++) {
     // let element = array[i];
@@ -12,19 +12,19 @@ solution.map = function(array, callback) {
   return result;
 }
 
-solution.filter = function(array, callback) {
+utils.filter = function(array, callback) {
   let result = [];
   for(let i = 0; i < array.length; i++) {
-    if(callback(array[i], i, array)) result.push(arr[i]);
+    if(callback(array[i], i, array)) result.push(array[i]);
   }
   return result;
 }
 
-solution.reduce = function(callback, initialValue) {
+utils.reduce = function(array, callback, initialValue) {
   let accumulator = (initialValue === undefined) ? undefined : initialValue;
-  for(let i = 0; i < this.length; i++) {
-    if(accumulator !== undefined) accumulator = callback.call(undefined, accumulator, this[i], i, this);
-    else accumulator = this[i];
+  for(let i = 0; i < array.length; i++) {
+    if(accumulator !== undefined) accumulator = callback(accumulator, array[i], i, array);
+    else accumulator = array[i];
   }
   return accumulator;
 }
