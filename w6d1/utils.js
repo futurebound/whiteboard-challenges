@@ -10,7 +10,7 @@ utils.map = function(array, callback) {
     // result[i] = callback(array[i]);
   }
   return result;
-}
+};
 
 utils.filter = function(array, callback) {
   let result = [];
@@ -18,7 +18,7 @@ utils.filter = function(array, callback) {
     if(callback(array[i], i, array)) result.push(array[i]);
   }
   return result;
-}
+};
 
 utils.reduce = function(array, callback, initialValue) {
   let accumulator = (initialValue === undefined) ? undefined : initialValue;
@@ -27,4 +27,4 @@ utils.reduce = function(array, callback, initialValue) {
     else accumulator = array[i];
   }
   return accumulator;
-}
+};

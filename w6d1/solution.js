@@ -1,6 +1,6 @@
 const utils = require('./utils');
 
-let array = [1, 2, 3, 4, 5]
+let array = [1, 2, 3, 4, 5];
 let mapCallback =  i => i * 3;
 let filterCallback =  i => i % 2 === 0;
 let reduceCallback =  (a, b) => a + b;
