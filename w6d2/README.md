@@ -26,7 +26,7 @@ To get this application up and running, fork and/or clone this repository using 
 
 ## Description
 **Solution**
-The solution module exports a single anonymous function which functions as described above. It checks whether the input is an array of nested arrays, 
+The solution module exports a single anonymous function which functions as described above. It expects a single array argument. It checks whether the argument is an array of nested arrays, and whether those nested arrays are of the same length or not. If any of these conditions are not met, the function will return an error asking the user to adjust their input accordingly. The function will run fine as long as those conditions are met, regardless of the content at each index of the nested arrays (floating point integers, strings, etc.).
 
 ## Credits and Collaborations
 [Jest Docs](https://facebook.github.io/jest/) ~ https://facebook.github.io/jest/
