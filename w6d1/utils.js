@@ -5,9 +5,7 @@ const utils = module.exports = {};
 utils.map = function(array, callback) {
   let result = [];
   for(let i = 0; i < array.length; i++) {
-    // let element = array[i];
     result.push(callback(array[i]));
-    // result[i] = callback(array[i]);
   }
   return result;
 };
