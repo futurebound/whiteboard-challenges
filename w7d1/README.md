@@ -28,4 +28,3 @@ The solution module exports a single anonymous function that expects two array a
   * [ESLint](https://www.npmjs.com/package/eslint) ~ npmjs.com/package/eslint
   * [Jest](https://facebook.github.io/jest/) ~ facebook.github.io/jest/
 </details>
-
