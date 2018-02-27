@@ -45,6 +45,12 @@ describe('#solution', function() {
       it('should return an error message if passed a number less than 0', () => {
         expect(solution.recursive(-5).message).toMatch(/please pass/);
       });
+      it('should return an error if not passed an integer', () => {
+        expect(solution.recursive(3.76)).toBeInstanceOf(Error);
+      })
+      it('should return an error message if not passed an integer', () => {
+        expect(solution.recursive(3.76).message).toMatch(/please pass/);
+      });
     });
   });
 });
