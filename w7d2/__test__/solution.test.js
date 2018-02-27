@@ -3,15 +3,20 @@
 const solution = require('../lib/solution');
 
 describe('#solution', function() {
-  // describe('#iterative', function() {
-  //   describe('valid input/output', () => {
-   
-  //   });
+  describe('#iterative', function() {
+    describe('valid input/output', () => {
+      it('should return value of 3 for an input of 4', () => {
+        expect(solution.iterative(4)).toEqual(3);
+      });
+      it('should return value of 5 for an input of 5', () => {
+        expect(solution.iterative(5)).toEqual(5);
+      });
+    });
     
-  //   describe('invalid input/output', () => {
+    describe('invalid input/output', () => {
     
-  //   });
-  // });
+    });
+  });
 
   describe('#recursive', function() {
     describe('valid input/output', () => {
