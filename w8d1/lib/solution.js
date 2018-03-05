@@ -4,6 +4,7 @@ const BST = require('./binary-search-tree');
 
 module.exports = (bstOne, bstTwo) => {
   if(bstOne instanceof BST && bstTwo instanceof BST) {
+    if(!bstOne.root || !bstTwo.root) return new Error('both binary search trees must have roots');
 
     return isSame(bstOne.root, bstTwo.root);
   }
