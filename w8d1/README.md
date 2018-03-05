@@ -86,6 +86,17 @@ This module requires in the `TreeNode` module, and exports a single class `BST`.
   * **`height(root)`** Expects a single `root` argument, and if there is none, returns `0` as its output which is also its breaking condition. Otherwise, it returns the value of recursively calling `Math.max(this.height(root.left), this.height(root.right)) + 1`.
 </details>
 
+## Solution
+This module requires in the `binary-search-tree` module, and exports a single anonymous function expecting two arguments. Both of these arguments should be instances of binary search trees, and should both have roots. If any of these conditions are not met, the function will return an error describing the respective situation and what input should be provided.
+
+Once input has been validated, the returns the output of calling another function included in the module but not exported, `isSame()`, and passes it the root of both trees.
+
+`isSame()` declares a variable to track the current output and defaults initially to `false`. It checks whether or not `rootOne.left` exists. If so, it checks if `rootTwo.left` exists and reassigns the output value to `true` if so and `false` if not. If there is no left, it checks whether there is also not a left on the second root. If so, it reassigns the output value to `true` and `false` if not. It then repeats the process checking for `rootOne.right`.
+
+Then, if output is currently `true` and `rootOne.left` exists, the function then recursively calls itself passing `(rootOne.left, rootTwo.left)` as arguments and assigns reassings the value of output to its return value. It then repeats the process checking for `rootOne.right` and passing the respective arguments if the above conditions are met.
+
+Once both of these conditions are not met, the function returns the current boolean value of output as its output. This is the value returned by the exported function as well.
+
 ***
 # Credits 
 **<details>**

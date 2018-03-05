@@ -9,7 +9,7 @@ module.exports = (bstOne, bstTwo) => {
     return isSame(bstOne.root, bstTwo.root);
   }
   return new Error('pass two binary search trees');
-}
+};
 
 const isSame = function(rootOne, rootTwo) {
   let output = false;
@@ -26,4 +26,4 @@ const isSame = function(rootOne, rootTwo) {
   if(output && rootOne.right)
     output = isSame(rootOne.right, rootTwo.right);
   return output;
-}
+};
