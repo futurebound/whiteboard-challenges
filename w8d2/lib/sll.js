@@ -10,7 +10,7 @@ class SLL {
 
   //O(1)
   insertHead(value) {
-    if(typeof value !== 'number') return 'ERROR: non-numerical input';
+    if(typeof value !== 'number') return 'ERROR: non-numeric input';
     let node = new Node(value);
     node.next = this.head;
     this.head = node;
@@ -20,7 +20,7 @@ class SLL {
   
   //O(n)
   insertEnd(value) {
-    if(typeof value !== 'number') return 'ERROR: non-numerical input';
+    if(typeof value !== 'number') return 'ERROR: non-numeric input';
     let node = new Node(value);
     if(!this.head) {
       this.head = node;
