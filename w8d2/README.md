@@ -103,9 +103,8 @@ Once input has been validated, it declares the variable `output` assigned the va
 1. It first utilizes the `inOrderTraversal()` method of the `BT` class, which returns an array of all values present in the passed `binaryTree` argument.
 1. It then calls `.filter()` on that array to remove any value which is non-numeric.
 1. It then calls `.sort()` on the output of the prior method to arrange the numeric values in ascending order.
-1. It finally maps through the output of the prior method (an array of sorted numeric values) and calls the `.insertEnd()` method of the imported `SLL` class and inserts every value present to the end of the `SLL` assigned to `output`.
 
-The function then returns the current value of `output` as its output.
+It finally maps through the output of the prior method (an array of sorted numeric values) and calls the `.insertEnd()` method of the imported `SLL` class and inserts every value present to the end of the `SLL` assigned to `output`. The function then returns the current value of `output` as its output.
 
 
 ***
