@@ -42,10 +42,10 @@ class SLL {
       let temp;
 
       while(current) {
-        temp = current.next; //temp reassigned value of current.next, initially whatever contained in head
-        current.next = result; //current.next (initially head.next) reassigned to null;
-        result = current; //result is reassigned the value of current
-        current = temp; //the head becomes the new temp
+        temp = current.next;
+        current.next = result;
+        result = current;
+        current = temp;
       }
       this.head = result;
       return this;
@@ -55,25 +55,25 @@ class SLL {
   //O(n)
   remove(offset) {
     if(this.length === 0) return 'ERROR: No nodes to delete';
-    if(offset === 1) { //if first node is the node to be deleted
-      let current = this.head; //create temporary var current, assigned value of the head
-      current = current.next; //current reassigned to value of current.next
-      this.head = current; //head reassigned value of current, which has been linked to the node after the one to be deleted
-      this.length--; //decrements length of SLL
+    if(offset === 1) {
+      let current = this.head;
+      current = current.next; 
+      this.head = current;
+      this.length--;
       return this;
     } else {
-      let previous; //declaring temp var previous
-      let current = this.head; //declaring temp var current and assigning value of head
-      let counter = 0; //declaring counter to track offset
-      while (counter < offset - 1) { //while the counter is less than the offset
-        previous = current; //assign value of current node (initially head) to previous, then the value of next nodes index as while loop continues
-        current = current.next; //assign value of currents next to current
-        counter++; //increment counter for while loop stop condition
+      let previous;
+      let current = this.head;
+      let counter = 0;
+      while (counter < offset - 1) {
+        previous = current;
+        current = current.next;
+        counter++;
       }
-      previous.next = current.next; //previous (node prior to one being deleted) is assigned value of node to be deleted's next, essentially unlinking the node to be deleted
-      this.length--; //decremend SLL length
+      previous.next = current.next;
+      this.length--;
 
-      return this; //return SLL without deleted node
+      return this;
     }
   }
 }
