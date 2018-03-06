@@ -60,8 +60,25 @@ describe('#solution', function() {
     });
   });
   describe('invalid input/output', () => {
-    // it('should return error if not passed instance of binary tree', () => {
-    //   expect(solution('binary tree')).toBeInstanceOf(Error);
-    // });
+    let noRoot = new BT();
+
+    it('should return error if no argument', () => {
+      expect(solution()).toBeInstanceOf(Error);
+    });
+    it('should return error message if no argument', () => {
+      expect(solution().message).toMatch(/please pass/);
+    });
+    it('should return error if not passed instance of binary tree', () => {
+      expect(solution('binary tree')).toBeInstanceOf(Error);
+    });
+    it('should return error message if not passed instance of binary tree', () => {
+      expect(solution({type: 'binary tree'}).message).toMatch(/please pass/);
+    });
+    it('should return error if passed binary tree with no root', () => {
+      expect(solution(noRoot)).toBeInstanceOf(Error);
+    });
+    it('should return error message if passed binary tree with no root', () => {
+      expect(solution(noRoot).message).toMatch(/binary tree/);
+    });
   });
 });
